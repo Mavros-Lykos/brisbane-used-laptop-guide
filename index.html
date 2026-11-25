@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brisbane Used Laptops — A$250–400 Guide</title>
   <meta name="description" content="Second-hand laptop picks in Brisbane, QLD: specs, links, what to avoid, and inspection checklist. Linux-friendly. Budget ≈ 50k–80k LKR." />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("brisbane-guide-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
 </head>
 <body>
   <header class="hero">
-    <h1>Brisbane used laptop guide</h1>
-    <p class="lead">Budget <strong>A$251–401</strong> (≈ 50,000–80,000 LKR @ 199.4 LKR/AUD, Nov 2025). <strong>Linux</strong> is fine — Windows not required. Re-check every listing before pickup.</p>
+    <div class="hero-top">
+      <div>
+        <h1>Brisbane used laptop guide</h1>
+        <p class="lead">Budget <strong>A$251–401</strong> (≈ 50,000–80,000 LKR @ 199.4 LKR/AUD, Nov 2025). <strong>Linux</strong> is fine — Windows not required. Re-check every listing before pickup.</p>
+      </div>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark or light mode">Dark mode</button>
+    </div>
     <nav class="jump">
       <a href="#top5">Top 5</a>
       <a href="#shortlist">Full shortlist</a>
@@ -21,16 +32,6 @@
   </header>
 
   <main>
-    <section class="card" id="gumtree">
-      <h2>Gumtree 429 / 403</h2>
-      <p>Rate limits are common when opening many ad URLs from chat or preview panes. That does not mean listings are dead.</p>
-      <ul>
-        <li>Use the <strong>Gumtree app</strong> or one browser tab; wait 5–10 minutes after a 429.</li>
-        <li>Prefer <strong>search pages</strong> below, then match suburb, seller, and price.</li>
-        <li><strong>eBay</strong> links (T14 Gen 1, P51s) usually open reliably.</li>
-      </ul>
-    </section>
-
     <section class="card" id="top5">
       <h2>Top 5 picks</h2>
       <p class="muted">Order: overall value for Linux, CPU/GPU, upgrades, RAM, storage, price. No real gaming GPU in this band.</p>
@@ -45,6 +46,8 @@
               <th>RAM</th>
               <th>Storage</th>
               <th>Screen</th>
+              <th>Battery / charger</th>
+              <th>Special</th>
               <th>Link</th>
             </tr>
           </thead>
@@ -53,51 +56,61 @@
               <td>1</td>
               <td>ThinkPad T14 Gen 1</td>
               <td>239</td>
-              <td>i5-10210U / UHD</td>
-              <td>16 GB soldered + 1 SO-DIMM → 48 GB</td>
-              <td>256 GB M.2 (swap only)</td>
-              <td>14″ FHD</td>
-              <td><a href="https://www.ebay.com.au/itm/407230812868" rel="noopener">eBay listing</a></td>
+              <td>Intel i5-10210U (10th)<span class="spec-sub">UHD 620 · 4C/8T · ~1.6 GHz base</span></td>
+              <td>16 GB DDR4 soldered + 1× SO-DIMM empty<span class="spec-sub">→ max 48 GB</span></td>
+              <td>256 GB NVMe · 1× M.2 2280<span class="spec-sub">swap only; no 2.5″</span></td>
+              <td>14″ 1920×1080 FHD<span class="spec-sub">Non-touch · IPS common</span></td>
+              <td>Test unplugged on arrival<span class="spec-sub">USB-C + barrel; confirm in photos</span></td>
+              <td>TrackPoint; eBay verified; Win11 Pro → Linux OK</td>
+              <td><a href="https://www.ebay.com.au/itm/407230812868" rel="noopener">eBay</a></td>
             </tr>
             <tr>
               <td>2</td>
               <td>IdeaPad 5 15ITL05</td>
               <td>300</td>
-              <td>i5-1135G7 / Iris Xe</td>
-              <td>16 GB soldered · 0 slots</td>
-              <td>256 GB NVMe M.2</td>
-              <td>15.6″ FHD</td>
-              <td><a href="https://www.gumtree.com.au/s-laptops/brisbane/lenovo+laptop/k0c18553l3005721" rel="noopener">Gumtree search</a></td>
+              <td>Intel i5-1135G7 (11th)<span class="spec-sub">Iris Xe · best consumer GPU here</span></td>
+              <td>16 GB DDR4 soldered<span class="spec-sub">0 RAM slots · 16 GB max</span></td>
+              <td>256 GB NVMe · M.2 only<span class="spec-sub">no 2.5″ bay</span></td>
+              <td>15.6″ 1920×1080 FHD<span class="spec-sub"><strong>Touch: usually no</strong> on this SKU; rare touch configs — confirm ad</span></td>
+              <td>Ask seller (~57 Wh typical)<span class="spec-sub">USB-C 65 W</span></td>
+              <td>Fingerprint on some SKUs; backlit keyboard common</td>
+              <td><a href="https://www.gumtree.com.au/s-laptops/brisbane/lenovo+laptop/k0c18553l3005721" rel="noopener">Search</a></td>
             </tr>
             <tr>
               <td>3</td>
               <td>ThinkPad T14 Gen 2i</td>
               <td>340–400</td>
-              <td>i5-1145G7 / Iris Xe</td>
-              <td>16 GB + 1 SO-DIMM → 48 GB</td>
-              <td>256 GB M.2</td>
-              <td>14″ FHD IPS</td>
-              <td><a href="https://www.gumtree.com.au/s-laptops/brisbane/lenovo+thinkpad/k0c18553l3005721" rel="noopener">Search</a> · <a href="https://www.gumtree.com.au/web/listing/laptops/1345384988" rel="noopener">A$400 ad</a></td>
+              <td>Intel i5-1145G7 (11th)<span class="spec-sub">Iris Xe · strongest GPU in top 5</span></td>
+              <td>16 GB soldered + 1× DDR4 SO-DIMM<span class="spec-sub">→ 48 GB max</span></td>
+              <td>256 GB NVMe · M.2 2280<span class="spec-sub">replace only</span></td>
+              <td>14″ 1920×1080 FHD IPS<span class="spec-sub">Non-touch typical; touch SKU possible</span></td>
+              <td>~50 Wh user-serviceable<span class="spec-sub">USB-C 65 W</span></td>
+              <td>TrackPoint; <strong>A$340 unit: left USB dead</strong> (hub OK)</td>
+              <td><a href="https://www.gumtree.com.au/s-laptops/brisbane/lenovo+thinkpad/k0c18553l3005721" rel="noopener">Search</a> · <a href="https://www.gumtree.com.au/web/listing/laptops/1345384988" rel="noopener">A$400</a></td>
             </tr>
             <tr>
               <td>4</td>
               <td>Dell Latitude 5410</td>
               <td>350</td>
-              <td>i5-10310U / UHD</td>
-              <td>8 GB · 1 free SO-DIMM → 32 GB</td>
-              <td>M.2 + often 2.5″ SATA</td>
-              <td>14″ FHD</td>
+              <td>Intel i5-10310U (10th)<span class="spec-sub">UHD · vPro variant in listing</span></td>
+              <td>8 GB in 1 of 2× SO-DIMM<span class="spec-sub">1 slot free → 32 GB</span></td>
+              <td>256 GB M.2 + often empty 2.5″ SATA<span class="spec-sub">2 drive bays on many units</span></td>
+              <td>14″ 1920×1080 FHD<span class="spec-sub">Non-touch business panel</span></td>
+              <td>Shop tested<span class="spec-sub">Barrel 65 W</span></td>
+              <td>30-day shop warranty; John Smith Electronics</td>
               <td><a href="https://www.gumtree.com.au/web/listing/laptops/1334570254" rel="noopener">Gumtree</a></td>
             </tr>
             <tr>
               <td>5</td>
               <td>ThinkPad E480</td>
               <td>260</td>
-              <td>i5-8265U / UHD 620</td>
-              <td>8 GB · 1 free SO-DIMM → 32 GB</td>
-              <td>M.2 + 2.5″ (best dual bays)</td>
-              <td>14″ FHD</td>
-              <td><a href="https://www.gumtree.com.au/s-laptops/indooroopilly/c18553l3005756" rel="noopener">Indooroopilly search</a></td>
+              <td>Intel i5-8265U (8th)<span class="spec-sub">UHD 620</span></td>
+              <td>8 GB · 1 of 2× SO-DIMM free<span class="spec-sub">→ 32 GB</span></td>
+              <td>M.2 2280 + 2.5″ SATA together<span class="spec-sub">best dual-bay top 5</span></td>
+              <td>14″ 1920×1080 FHD<span class="spec-sub">Non-touch</span></td>
+              <td>~85% stated in listing<span class="spec-sub">Charger included</span></td>
+              <td>30-day warranty; most upgrade-friendly storage</td>
+              <td><a href="https://www.gumtree.com.au/s-laptops/indooroopilly/c18553l3005756" rel="noopener">Search</a></td>
             </tr>
           </tbody>
         </table>
@@ -117,18 +130,100 @@
               <th>RAM</th>
               <th>Storage</th>
               <th>Screen</th>
+              <th>Battery / charger</th>
+              <th>Special</th>
               <th>Link</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>ThinkPad T14 Gen 1</td><td>239</td><td>i5-10210U</td><td>16 + slot</td><td>256 M.2</td><td>14″ FHD</td><td><a href="https://www.ebay.com.au/itm/407230812868" rel="noopener">eBay</a></td></tr>
-            <tr><td>IdeaPad 5 15ITL05</td><td>300</td><td>i5-1135G7 / Xe</td><td>16 soldered</td><td>256 NVMe</td><td>15.6″ FHD</td><td><a href="https://www.gumtree.com.au/s-laptops/brisbane/lenovo+laptop/k0c18553l3005721" rel="noopener">Search</a></td></tr>
-            <tr><td>T14 Gen 2i 16 GB</td><td>340–400</td><td>i5-1145G7 / Xe</td><td>16 + slot</td><td>256 M.2</td><td>14″ FHD</td><td><a href="https://www.gumtree.com.au/web/listing/laptops/1345772303" rel="noopener">340</a> · <a href="https://www.gumtree.com.au/web/listing/laptops/1345384988" rel="noopener">400</a></td></tr>
-            <tr><td>ThinkPad E480</td><td>260</td><td>i5-8265U</td><td>8 · 2 slots</td><td>M.2 + 2.5″</td><td>14″ FHD</td><td><a href="https://www.gumtree.com.au/web/listing/laptops/1337147778" rel="noopener">Gumtree</a></td></tr>
-            <tr><td>Latitude 5410</td><td>350</td><td>i5-10310U</td><td>8 · 2 slots</td><td>M.2 (+2.5″)</td><td>14″ FHD</td><td><a href="https://www.gumtree.com.au/web/listing/laptops/1334570254" rel="noopener">Gumtree</a></td></tr>
-            <tr><td>HP ProBook 430 G5</td><td>200</td><td>i5-8250U</td><td>8 · 2 slots</td><td>256 M.2</td><td>14″ FHD</td><td><a href="https://www.gumtree.com.au/web/listing/laptops/1337661346" rel="noopener">Gumtree</a></td></tr>
-            <tr><td>ThinkPad L490</td><td>200</td><td>i5-8265U</td><td>8 · 2 slots</td><td>256 M.2</td><td>14″ FHD</td><td><a href="https://www.gumtree.com.au/web/listing/laptops/1345764194" rel="noopener">Gumtree</a></td></tr>
-            <tr><td>ThinkPad P51s</td><td>199</td><td>i5-7300U</td><td>8 · 2 slots</td><td>256 M.2</td><td>15.6″ FHD</td><td><a href="https://www.ebay.com.au/itm/406896111322" rel="noopener">eBay</a></td></tr>
+            <tr>
+              <td>ThinkPad T14 Gen 1</td>
+              <td>239</td>
+              <td>i5-10210U / UHD</td>
+              <td>16 soldered + 1 SO-DIMM · 48 GB max</td>
+              <td>256 GB M.2</td>
+              <td>14″ FHD · non-touch</td>
+              <td>Test on arrival · USB-C</td>
+              <td>eBay · 7 left (re-check)</td>
+              <td><a href="https://www.ebay.com.au/itm/407230812868" rel="noopener">eBay</a></td>
+            </tr>
+            <tr>
+              <td>IdeaPad 5 15ITL05</td>
+              <td>300</td>
+              <td>i5-1135G7 / Iris Xe</td>
+              <td>16 soldered · no slots</td>
+              <td>256 GB NVMe</td>
+              <td>15.6″ FHD · <strong>touch: usually no</strong></td>
+              <td>Ask · USB-C 65 W</td>
+              <td>Fingerprint optional</td>
+              <td><a href="https://www.gumtree.com.au/s-laptops/brisbane/lenovo+laptop/k0c18553l3005721" rel="noopener">Search</a></td>
+            </tr>
+            <tr>
+              <td>T14 Gen 2i 16 GB</td>
+              <td>340–400</td>
+              <td>i5-1145G7 / Iris Xe</td>
+              <td>16 + 1 SO-DIMM · 48 GB</td>
+              <td>256 GB NVMe</td>
+              <td>14″ FHD IPS · non-touch typ.</td>
+              <td>Ask · USB-C 65 W</td>
+              <td>TrackPoint; USB fault @340</td>
+              <td><a href="https://www.gumtree.com.au/web/listing/laptops/1345772303" rel="noopener">340</a> · <a href="https://www.gumtree.com.au/web/listing/laptops/1345384988" rel="noopener">400</a></td>
+            </tr>
+            <tr>
+              <td>ThinkPad E480</td>
+              <td>260</td>
+              <td>i5-8265U / UHD 620</td>
+              <td>8 GB · 1 SO-DIMM free · 32 GB</td>
+              <td>M.2 + 2.5″ SATA</td>
+              <td>14″ FHD</td>
+              <td>~85% · charger inc.</td>
+              <td>30-day warranty</td>
+              <td><a href="https://www.gumtree.com.au/web/listing/laptops/1337147778" rel="noopener">Gumtree</a></td>
+            </tr>
+            <tr>
+              <td>Latitude 5410</td>
+              <td>350</td>
+              <td>i5-10310U / UHD</td>
+              <td>8 GB · 1 SO-DIMM free · 32 GB</td>
+              <td>M.2 + 2.5″ often</td>
+              <td>14″ FHD</td>
+              <td>Shop test · barrel 65 W</td>
+              <td>Dual drive bays</td>
+              <td><a href="https://www.gumtree.com.au/web/listing/laptops/1334570254" rel="noopener">Gumtree</a></td>
+            </tr>
+            <tr>
+              <td>HP ProBook 430 G5</td>
+              <td>200</td>
+              <td>i5-8250U / UHD 620</td>
+              <td>8 GB · 2× SO-DIMM · 32 GB</td>
+              <td>256 GB M.2</td>
+              <td>14″ FHD</td>
+              <td>~80% · included</td>
+              <td>30-day warranty</td>
+              <td><a href="https://www.gumtree.com.au/web/listing/laptops/1337661346" rel="noopener">Gumtree</a></td>
+            </tr>
+            <tr>
+              <td>ThinkPad L490</td>
+              <td>200</td>
+              <td>i5-8265U / UHD 620</td>
+              <td>8 GB · 1 SO-DIMM free · 64 GB*</td>
+              <td>256 GB NVMe · M.2 <em>or</em> 2.5″</td>
+              <td>14″ FHD</td>
+              <td>Ask · USB-C common</td>
+              <td>TrackPoint; *Lenovo max spec</td>
+              <td><a href="https://www.gumtree.com.au/web/listing/laptops/1345764194" rel="noopener">Gumtree</a></td>
+            </tr>
+            <tr>
+              <td>ThinkPad P51s</td>
+              <td>199</td>
+              <td>i5-7300U / HD 620</td>
+              <td>8 GB · 1 SO-DIMM free · 32 GB</td>
+              <td>256 GB M.2</td>
+              <td>15.6″ FHD</td>
+              <td>Scratches noted · confirm charger</td>
+              <td>TrackPoint cap missing; Quadro option on other SKUs</td>
+              <td><a href="https://www.ebay.com.au/itm/406896111322" rel="noopener">eBay</a></td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -173,24 +268,108 @@
 
     <section class="card" id="checklist">
       <h2>Pre-purchase checklist</h2>
-      <p>Print or use on your phone at inspection.</p>
-      <ul class="checklist">
-        <li>Cold boot to desktop — no BSOD</li>
-        <li>Charger included, genuine, charges (LED on)</li>
-        <li>8 GB+ RAM confirmed (Settings / BIOS)</li>
-        <li>SSD not HDD; capacity matches ad (~256 GB)</li>
-        <li>Battery: report or 2+ hours at medium brightness</li>
-        <li>All keyboard keys, trackpad, USB ports</li>
-        <li>Display: no cracks; check bright spots on white page</li>
-        <li>Wi‑Fi, webcam, speakers</li>
-        <li>No BIOS password; no theft / activation locks</li>
-        <li>Receipt or message trail if warranty claimed</li>
+      <p class="muted">Tap each row to tick. Progress is saved in this browser (local storage).</p>
+      <ul class="checklist" id="inspection-checklist">
+        <li data-check-id="cold-boot"><span class="check-box" aria-hidden="true"></span><span class="check-label">Cold boot to desktop — no BSOD</span></li>
+        <li data-check-id="charger"><span class="check-box" aria-hidden="true"></span><span class="check-label">Charger included, genuine, charges (LED on)</span></li>
+        <li data-check-id="ram"><span class="check-box" aria-hidden="true"></span><span class="check-label">8 GB+ RAM confirmed (Settings / BIOS)</span></li>
+        <li data-check-id="ssd"><span class="check-box" aria-hidden="true"></span><span class="check-label">SSD not HDD; capacity matches ad (~256 GB)</span></li>
+        <li data-check-id="battery"><span class="check-box" aria-hidden="true"></span><span class="check-label">Battery: report or 2+ hours at medium brightness</span></li>
+        <li data-check-id="keyboard"><span class="check-box" aria-hidden="true"></span><span class="check-label">All keyboard keys, trackpad, USB ports</span></li>
+        <li data-check-id="display"><span class="check-box" aria-hidden="true"></span><span class="check-label">Display: no cracks; check bright spots on white page</span></li>
+        <li data-check-id="wifi"><span class="check-box" aria-hidden="true"></span><span class="check-label">Wi‑Fi, webcam, speakers</span></li>
+        <li data-check-id="locks"><span class="check-box" aria-hidden="true"></span><span class="check-label">No BIOS password; no theft / activation locks</span></li>
+        <li data-check-id="receipt"><span class="check-box" aria-hidden="true"></span><span class="check-label">Receipt or message trail if warranty claimed</span></li>
+        <li data-check-id="touch-fp"><span class="check-box" aria-hidden="true"></span><span class="check-label">If ad claims touch / fingerprint — verify in OS settings</span></li>
       </ul>
+      <div class="checklist-actions">
+        <button type="button" id="checklist-clear">Clear all ticks</button>
+        <span class="muted" id="checklist-progress"></span>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>Guide updated November 2026. Listings change daily — verify price and availability before travel.</p>
   </footer>
+
+  <script>
+    (function () {
+      var THEME_KEY = "brisbane-guide-theme";
+      var CHECK_KEY = "brisbane-guide-checklist";
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
+
+      function currentTheme() {
+        return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      }
+
+      function updateThemeButton() {
+        btn.textContent = currentTheme() === "dark" ? "Light mode" : "Dark mode";
+      }
+
+      btn.addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem(THEME_KEY, next);
+        updateThemeButton();
+      });
+      updateThemeButton();
+
+      function loadChecks() {
+        try {
+          var raw = localStorage.getItem(CHECK_KEY);
+          return raw ? JSON.parse(raw) : {};
+        } catch (e) {
+          return {};
+        }
+      }
+
+      function saveChecks(state) {
+        localStorage.setItem(CHECK_KEY, JSON.stringify(state));
+      }
+
+      var list = document.getElementById("inspection-checklist");
+      var progress = document.getElementById("checklist-progress");
+      var items = list.querySelectorAll("li[data-check-id]");
+      var state = loadChecks();
+
+      function renderItem(li) {
+        var id = li.getAttribute("data-check-id");
+        var done = !!state[id];
+        li.classList.toggle("done", done);
+        li.querySelector(".check-box").textContent = done ? "✓" : "";
+        li.setAttribute("aria-checked", done ? "true" : "false");
+        li.setAttribute("role", "checkbox");
+      }
+
+      function updateProgress() {
+        var n = 0;
+        items.forEach(function (li) {
+          if (state[li.getAttribute("data-check-id")]) n++;
+        });
+        progress.textContent = n + " / " + items.length + " checked";
+      }
+
+      items.forEach(function (li) {
+        renderItem(li);
+        li.addEventListener("click", function () {
+          var id = li.getAttribute("data-check-id");
+          state[id] = !state[id];
+          saveChecks(state);
+          renderItem(li);
+          updateProgress();
+        });
+      });
+      updateProgress();
+
+      document.getElementById("checklist-clear").addEventListener("click", function () {
+        state = {};
+        saveChecks(state);
+        items.forEach(renderItem);
+        updateProgress();
+      });
+    })();
+  </script>
 </body>
 </html>
