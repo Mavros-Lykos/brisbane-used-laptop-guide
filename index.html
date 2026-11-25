@@ -9,28 +9,37 @@
   <link rel="stylesheet" href="styles.css" />
   <script>
     (function () {
+      var valid = ["light", "dark", "midnight", "ocean", "forest", "dusk", "paper", "contrast"];
       var t = localStorage.getItem("brisbane-guide-theme") || "light";
-      if (t !== "dark") t = "light";
-      document.documentElement.setAttribute("data-bs-theme", t);
+      if (valid.indexOf(t) < 0) t = "light";
+      var darkModes = { dark: 1, midnight: 1, dusk: 1 };
       document.documentElement.setAttribute("data-theme", t);
+      document.documentElement.setAttribute("data-bs-theme", darkModes[t] ? "dark" : "light");
     })();
   </script>
 </head>
 <body class="bg-body-tertiary">
   <nav class="navbar navbar-expand-lg bg-body border-bottom sticky-top shadow-sm">
     <div class="container-lg">
-      <a class="navbar-brand fw-semibold" href="#">Brisbane laptops</a>
-      <div class="d-flex align-items-center gap-2 order-lg-2">
-        <button type="button" class="btn btn-outline-primary btn-sm" id="theme-toggle" aria-label="Toggle dark or light mode" aria-pressed="false">
-          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
-          <span id="theme-toggle-label">Dark mode</span>
+      <a class="navbar-brand fw-semibold py-2" href="#">Brisbane laptops</a>
+      <div class="dropdown ms-auto me-2 nav-toolbar d-flex align-items-center">
+        <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle d-flex align-items-center gap-1" id="theme-menu-trigger" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" aria-label="Theme: Light. Open theme menu">
+          <span aria-hidden="true">🎨</span>
+          <span class="d-none d-sm-inline">Theme</span>
         </button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="dropdown-menu dropdown-menu-end theme-menu shadow" aria-labelledby="theme-menu-trigger">
+          <div class="px-2 pb-2 border-bottom mb-2">
+            <div class="fw-semibold small">Appearance</div>
+            <div class="text-guide-muted">Current: <span id="theme-menu-current">Light</span></div>
+          </div>
+          <div class="theme-grid px-1 pb-1" id="theme-grid" role="group" aria-label="Choose color theme"></div>
+        </div>
       </div>
-      <div class="collapse navbar-collapse order-lg-1" id="mainNav">
-        <ul class="navbar-nav me-lg-auto mb-2 mb-lg-0">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-lg-3">
           <li class="nav-item"><a class="nav-link" href="#top5">Top 5</a></li>
           <li class="nav-item"><a class="nav-link" href="#shortlist">Shortlist</a></li>
           <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>

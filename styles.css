@@ -1,16 +1,4 @@
-/* Custom layer on Bootstrap 5.3 — light default, dark via data-bs-theme */
-
-html[data-bs-theme="light"] {
-  color-scheme: light;
-  --guide-muted: #5c6b82;
-  --check-done: #198754;
-}
-
-html[data-bs-theme="dark"] {
-  color-scheme: dark;
-  --guide-muted: #adb5bd;
-  --check-done: #75b798;
-}
+/* Brisbane laptop guide — Bootstrap 5.3 + multi-theme (data-theme) */
 
 body {
   line-height: 1.55;
@@ -22,20 +10,26 @@ body {
 }
 
 .text-guide-muted {
-  color: var(--guide-muted);
+  color: var(--guide-muted, var(--bs-secondary-color));
 }
 
 .spec-sub {
   display: block;
-  color: var(--guide-muted);
+  color: var(--guide-muted, var(--bs-secondary-color));
   font-size: 0.78em;
   margin-top: 0.2rem;
   font-weight: 400;
 }
 
 .guide-table {
-  font-size: clamp(0.72rem, 2.5vw, 0.85rem);
-  min-width: 720px;
+  font-size: clamp(0.72rem, 2.2vw, 0.85rem);
+  min-width: min(720px, 100%);
+}
+
+@media (max-width: 400px) {
+  .guide-table {
+    min-width: 580px;
+  }
 }
 
 .guide-table th {
@@ -75,19 +69,228 @@ body {
 
 .checklist-item.done .check-box,
 .list-group-item-success .check-box {
-  background: var(--check-done);
-  border-color: var(--check-done);
+  background: var(--check-done, var(--bs-success));
+  border-color: var(--check-done, var(--bs-success));
   color: #fff;
 }
 
-#theme-toggle {
-  white-space: nowrap;
+/* ——— Theme: Light (default) ——— */
+html[data-theme="light"] {
+  color-scheme: light;
+  --guide-muted: #5c6b82;
+  --check-done: #198754;
+  --bs-body-bg: #f8f9fa;
+  --bs-body-color: #212529;
+  --bs-primary: #0d6efd;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-secondary-bg: #e9ecef;
+  --bs-tertiary-bg: #f8f9fa;
+  --bs-border-color: #dee2e6;
+  --bs-link-color: #0d6efd;
+  --bs-link-hover-color: #0a58ca;
+}
+
+/* ——— Dark ——— */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --guide-muted: #adb5bd;
+  --check-done: #75b798;
+  --bs-body-bg: #212529;
+  --bs-body-color: #dee2e6;
+  --bs-primary: #6ea8fe;
+  --bs-primary-rgb: 110, 168, 254;
+  --bs-secondary-bg: #343a40;
+  --bs-tertiary-bg: #2b3035;
+  --bs-border-color: #495057;
+  --bs-link-color: #6ea8fe;
+  --bs-link-hover-color: #9ec5fe;
+}
+
+/* ——— Midnight (deep blue) ——— */
+html[data-theme="midnight"] {
+  color-scheme: dark;
+  --guide-muted: #94a3b8;
+  --check-done: #34d399;
+  --bs-body-bg: #0f172a;
+  --bs-body-color: #e2e8f0;
+  --bs-primary: #38bdf8;
+  --bs-primary-rgb: 56, 189, 248;
+  --bs-secondary-bg: #1e293b;
+  --bs-tertiary-bg: #1e293b;
+  --bs-border-color: #334155;
+  --bs-link-color: #38bdf8;
+  --bs-link-hover-color: #7dd3fc;
+}
+
+/* ——— Ocean (soft teal light) ——— */
+html[data-theme="ocean"] {
+  color-scheme: light;
+  --guide-muted: #4a6670;
+  --check-done: #0d9488;
+  --bs-body-bg: #ecf8f6;
+  --bs-body-color: #134e4a;
+  --bs-primary: #0d9488;
+  --bs-primary-rgb: 13, 148, 136;
+  --bs-secondary-bg: #d5f0ec;
+  --bs-tertiary-bg: #e8f6f4;
+  --bs-border-color: #99d5cf;
+  --bs-link-color: #0f766e;
+  --bs-link-hover-color: #115e59;
+}
+
+/* ——— Forest ——— */
+html[data-theme="forest"] {
+  color-scheme: light;
+  --guide-muted: #4d6b4d;
+  --check-done: #2d6a4f;
+  --bs-body-bg: #f1f8f2;
+  --bs-body-color: #1b4332;
+  --bs-primary: #2d6a4f;
+  --bs-primary-rgb: 45, 106, 79;
+  --bs-secondary-bg: #d8eadb;
+  --bs-tertiary-bg: #eef6ef;
+  --bs-border-color: #95d5b2;
+  --bs-link-color: #1b4332;
+  --bs-link-hover-color: #2d6a4f;
+}
+
+/* ——— Dusk (purple dark) ——— */
+html[data-theme="dusk"] {
+  color-scheme: dark;
+  --guide-muted: #c4b5fd;
+  --check-done: #a78bfa;
+  --bs-body-bg: #1e1b2e;
+  --bs-body-color: #ede9fe;
+  --bs-primary: #a78bfa;
+  --bs-primary-rgb: 167, 139, 250;
+  --bs-secondary-bg: #2d2a3e;
+  --bs-tertiary-bg: #252238;
+  --bs-border-color: #4c4866;
+  --bs-link-color: #c4b5fd;
+  --bs-link-hover-color: #ddd6fe;
+}
+
+/* ——— Paper (warm sepia) ——— */
+html[data-theme="paper"] {
+  color-scheme: light;
+  --guide-muted: #78716c;
+  --check-done: #b45309;
+  --bs-body-bg: #faf7f2;
+  --bs-body-color: #44403c;
+  --bs-primary: #b45309;
+  --bs-primary-rgb: 180, 83, 9;
+  --bs-secondary-bg: #f0ebe3;
+  --bs-tertiary-bg: #f5f0e8;
+  --bs-border-color: #d6d3d1;
+  --bs-link-color: #92400e;
+  --bs-link-hover-color: #b45309;
+}
+
+/* ——— High contrast (a11y) ——— */
+html[data-theme="contrast"] {
+  color-scheme: light;
+  --guide-muted: #262626;
+  --check-done: #006400;
+  --bs-body-bg: #ffffff;
+  --bs-body-color: #000000;
+  --bs-primary: #0000cc;
+  --bs-primary-rgb: 0, 0, 204;
+  --bs-secondary-bg: #f0f0f0;
+  --bs-tertiary-bg: #ffffff;
+  --bs-border-color: #000000;
+  --bs-link-color: #0000cc;
+  --bs-link-hover-color: #000099;
+}
+
+/* Sync Bootstrap color mode for components (striped tables, etc.) */
+html[data-theme="dark"],
+html[data-theme="midnight"],
+html[data-theme="dusk"] {
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+  --bs-table-hover-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* Theme picker */
+.theme-menu {
+  width: min(20rem, calc(100vw - 1.5rem));
+  max-height: min(70vh, 28rem);
+  overflow-y: auto;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 400px) {
+  .theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  padding: 0.55rem 0.6rem;
+  border: 2px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.theme-option:hover,
+.theme-option:focus-visible {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.15rem rgba(var(--bs-primary-rgb), 0.25);
+  outline: none;
+}
+
+.theme-option.active {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.35);
+}
+
+.theme-option-swatch {
+  display: flex;
+  gap: 0.2rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.theme-option-swatch span {
+  flex: 1;
+}
+
+.theme-option-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.theme-option-hint {
+  font-size: 0.68rem;
+  color: var(--guide-muted, var(--bs-secondary-color));
+}
+
+#theme-menu-current {
+  font-size: 0.75rem;
 }
 
 @media (max-width: 576px) {
   .navbar-brand {
     font-size: 1rem;
-    max-width: 9rem;
+    max-width: 8.5rem;
     line-height: 1.2;
+  }
+
+  .nav-toolbar {
+    gap: 0.35rem !important;
   }
 }
